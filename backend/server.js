@@ -56,7 +56,7 @@ app.post('/api/register', async (req, res) => {
         }
 
         // Give Welcome Bonus
-        const newUser = new User({ name, email, password });
+        const newUser = new User({ name, email, password, walletAddress: email });
         await newUser.save();
 
         // Bonus Transaction (100 VC)
