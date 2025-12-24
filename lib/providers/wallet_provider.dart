@@ -7,9 +7,13 @@ import 'dart:io';
 class WalletProvider extends ChangeNotifier {
   // Dynamic Host for Android vs Windows/Web
   static String get baseUrl {
-    if (kIsWeb) return 'http://127.0.0.1:3000/api';
-    if (Platform.isAndroid) return 'http://10.0.2.2:3000/api';
-    return 'http://127.0.0.1:3000/api'; // Windows/iOS/Linux
+    // Production Vercel URL
+    return 'https://blockpay-three.vercel.app/api';
+
+    // Localhost Fallback (Commented out)
+    // if (kIsWeb) return 'http://127.0.0.1:3000/api';
+    // if (Platform.isAndroid) return 'http://10.0.2.2:3000/api';
+    // return 'http://127.0.0.1:3000/api';
   }
 
   String? _userId; // Dynamic User ID (Email)
